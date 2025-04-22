@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(to right, black, #5555);
-    margin-left: 20px;
+    margin-left: 10px;
     background-image: url("Design sem nome.png");
 
 }
@@ -41,7 +41,7 @@ body {
 
 #titulo {
     color: white;
-    font-family: 'Open Sauce'; /* Fonte ajustada */
+    font-family: 'Open Sauce';
     margin-top: 5px;
 }
 
@@ -115,7 +115,7 @@ body {
         opacity: 1;
     }
 }
-/* Aplicando a animação na navbar, título, bem-vindo e divs */
+
 .navbar-expand-lg,
 #titulo,
 #bem-vindo,
