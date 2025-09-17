@@ -1,17 +1,49 @@
 body {
-    background: linear-gradient(to right, black, #5555);
-    margin-left: 10px;
-    background-image: url("Design sem nome.png");
-
+    margin: 0;
+    min-height: 100vh; /* garante altura mínima */
+    background: linear-gradient(135deg, #a0a0a0, #102033);
+    position: relative; /* para posicionamento das bolinhas */
+    overflow-x: hidden; /* impede scroll horizontal, mas deixa vertical */
 }
 
 
+.dot {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3); /* mais transparente */
+    border-radius: 50%;
+    filter: blur(4px);
+    z-index: -1; /* atrás de tudo */
+    animation: move linear infinite;
+}
+
+/* Variando cada bolinha */
+.dot:nth-child(1) { top: 10%; left: 20%; animation-duration: 12s; width: 12px; height: 12px; }
+.dot:nth-child(2) { top: 50%; left: 10%; animation-duration: 15s; width: 18px; height: 18px; }
+.dot:nth-child(3) { top: 30%; left: 70%; animation-duration: 10s; width: 14px; height: 14px; }
+.dot:nth-child(4) { top: 80%; left: 40%; animation-duration: 18s; width: 20px; height: 20px; }
+.dot:nth-child(5) { top: 60%; left: 80%; animation-duration: 14s; width: 10px; height: 10px; }
+.dot:nth-child(6) { top: 20%; left: 50%; animation-duration: 16s; width: 16px; height: 16px; }
+.dot:nth-child(7) { top: 70%; left: 30%; animation-duration: 13s; width: 13px; height: 13px; }
+.dot:nth-child(8) { top: 40%; left: 60%; animation-duration: 17s; width: 15px; height: 15px; }
+.dot:nth-child(9) { top: 90%; left: 90%; animation-duration: 20s; width: 12px; height: 12px; }
+
+/* Movimento das bolinhas mais aleatório */
+@keyframes move {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(40px, 60px); }
+    40% { transform: translate(-30px, 80px); }
+    60% { transform: translate(60px, -50px); }
+    80% { transform: translate(-50px, -30px); }
+    100% { transform: translate(0, 0); }
+}
+
 .navbar-expand-lg {
-    background-color: #efcbcb55; /* Alterado para #5555 */
+    background-color: #1916160c;
+
     color: white;
     border-radius: 12px;
     margin-top: 10px;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 
 }
 
@@ -20,11 +52,11 @@ body {
 }
 
 .navbar-expand-lg .nav-link:hover {
-    color: #686146;
+    color: #1d1b13;
 }
 
 .navbar-expand-lg:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .navbar-toggler {
@@ -47,44 +79,69 @@ body {
 
 #bem-vindo {
     font-family: 'Brown Sugar';
-    font-size: 120px;
+    font-size: 100px;
     margin: 10px 0;
     color: white;
-    text-align: center; /* Centraliza o título de boas-vindas */
+    text-align: center;
 }
 
 #conhecimento-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centraliza os blocos de conhecimento */
-    margin-top: 20px;
-    width: 100%; /* Garante que o contêiner ocupe toda a largura */
+    justify-content: center; /* Centraliza os blocos */
+    gap: 10px; /* Espaçamento entre os blocos */
+    margin-top: 10px;
+    width:100%;
+    box-sizing: border-box;
 }
 
-/* Estilos para as divs individuais */
+#crud {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 2px solid #00bfff;
+  border-radius: 8px;
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#crud:hover {
+  background-color: #00bfff;
+  color: #fff;
+}
+
+
+
+/* Blocos individuais */
 .knowledge-block {
     background-color: #444;
     border-radius: 10px;
     padding: 20px;
-    margin: 10px; /* Margem padrão para espaçamento */
     color: white;
-    flex: 1;
-    min-width: 250px; /* Largura mínima para evitar divs muito finas */
-    max-width: 31%; /* Limitar a largura em telas grandes */
-    box-sizing: border-box; /*define borda comum*/
+    flex: 1 1 250px; 
+    max-width: 300px; 
+    box-sizing: border-box;
     transition: transform 0.3s ease;
 }
+.knowledge-block:hover {
+    transform: translateY(-5px);
+}
 
-/* Media query para telas menores */
 @media (max-width: 768px) {
+    #conhecimento-content {
+        justify-content: center;
+        gap: 15px;
+    }
     .knowledge-block {
-        max-width: 75%; /* Aumentar a largura máxima em telas menores */
-        margin: 5px auto; /* Centraliza os blocos */
-        flex: none; /* Para remover o comportamento flex */
+        flex: 1 1 70%;
+        max-width: 90%;
+        padding: 15px;
     }
 }
 
-/* Estilo de hover permanece o mesmo */
+
+
 .knowledge-block:hover {
     transform: scale(1.1);
 }
@@ -98,21 +155,18 @@ body {
         #sobre-p {
             color: black;
         }
-        #discord {
-            color: black;
-        }
         .modal-title {
             color: black;
         }
         /* Animação para entrada da esquerda */
 @keyframes slideIn {
     0% {
-        transform: translateX(-100%);
-        opacity: 0;
+        transform: translateX(-120%);
+        opacity: 5;
     }
     100% {
         transform: translateX(0);
-        opacity: 1;
+        opacity: 80;
     }
 }
 
